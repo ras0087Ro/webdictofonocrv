@@ -1,0 +1,83 @@
+html{
+    background-image: url(background.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.Rectangle_6{
+    position: absolute;
+    width: 285px;
+    height: 80%;
+    left: 100px;
+    top: 90px;
+
+    background: #FFFFFF;
+}
+.instruction{
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+}
+.instruction_text{
+
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    word-wrap: break-word;
+
+    margin-left: 3vh;
+    margin-right: 3vh;
+    margin-bottom: auto;
+    color: #000000;
+}
+
+.frame{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 55%;
+    height: 80%;
+    left: 434px;
+    top: 90px;
+
+    border: 6px solid rgba(255, 255, 255, 0.85);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+}
+.frame_title{
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+.frame_text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    background: #F1F1F1;
+    opacity: 0.95;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
