@@ -56,8 +56,8 @@ html{
     box-sizing: border-box;
 
     position: absolute;
-    width: 55%;
-    height: 80%;
+    width: 900px;
+    height: 600px;
     left: 434px;
     top: 90px;
 
@@ -148,7 +148,7 @@ html{
     left: 5%;
 
     height: 13%;
-    width: 10%;
+    width: 9%;
 
     background: #FFFFFF;
     border-radius: 15px;
@@ -191,7 +191,7 @@ html{
     right: 5%;
 
     height: 13%;
-    width: 10%;
+    width: 9%;
 
     background: #FFFFFF;
     border-radius: 15px;
