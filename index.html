@@ -18,35 +18,50 @@
 
         <!-- Основной блок -->
         <div class="frame">
+
+            <!-- Блок шрифта -->
             <div class="font_size">
                 <div class="font_size_text">Шрифт</div>
                 <div class="font_size_cipher"><b>32</b></div>
-                
-
             </div>
+
+            <!-- Заголовок в блоке -->
             <h2 class="frame_title">Текст для прочтения</h2>
+
+            <!-- Текст для прочтения -->
             <div class="frame_text">
                 <p style="margin: 2%;">
                     В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился. В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился.
                 </p>
             </div>
-            <div class="button_delete">
-                <img src="/home/pipi-pupu/Desktop/webdictofonocrv/image_2022-11-29_09-29-28.png" alt="delete" width="70%" height="70%">   
-            </div>
-            <div class="button_play">
-                <img src="/home/pipi-pupu/Desktop/webdictofonocrv/play.png" alt="play" width="40%" height="40%" opacity: 0.8;
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
-            </div>
-            <div class="button_microphone">
 
-            </div>
-            <div class="button_pause">
-                <img src="/home/pipi-pupu/Desktop/webdictofonocrv/pause.png" alt="pause" width="40%" height="40%" opacity: 0.8;
+
+            <!-- Кнопка удаления -->
+            <button class="button_delete" onclick="button_delete()">
+                <input type="image" src="image_2022-11-29_09-29-28.png" alt="delete" width="70%" height="70%" onclick="button_delete()" id="button_delete">   
+            </button>
+
+            <!-- Кнопка плэй -->
+            <button class="button_play">
+                <input type="image" src="play.png" alt="play" width="40%" height="40%" opacity: 0.8;
                 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
-            </div>
-            <div class="button_send">
-                <img src="/home/pipi-pupu/Desktop/webdictofonocrv/send.png" alt="send" width="80%" height="80%">
-            </div>
+            </button>
+
+            <!-- Кнопка микрофона -->
+            <button class="button_microphone_out">
+                <div class="button_microphone_in"><img src="microphone.png" alt="microphone" width="90%" height="90%"></div>
+            </button>
+
+            <!-- Кнопка паузы -->
+            <button class="button_pause">
+                <input type="image" src="pause.png" alt="pause" width="40%" height="40%" opacity: 0.8;
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
+            </button>
+
+            <!-- Кнопка отправки ГС -->
+            <button class="button_send">
+                <input type="image" src="send.png" alt="send" width="80%" height="80%">
+            </button>
         </div>
 
 
