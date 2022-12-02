@@ -266,7 +266,11 @@ html{
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+
 }
 .button_microphone_in:hover{
     background: #FFFFFF;
+}
+.button_microphone_in:active{
+    background-color: #ffffffdf;
 }
