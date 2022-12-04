@@ -134,18 +134,20 @@ html{
 }
 .buttons{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    bottom: 5%;
-    left: 5;
+
+    bottom: 55%;
+    left: 5%;
 }
 .button_delete{
     display: flex;
     justify-content: center;
     align-items: center;
 
-    position: absolute;
+    /* position: absolute;
     bottom: 5%;
-    left: 3%;
+    left: 3%; */
 
     height: 13%;
     width: 9%;
@@ -158,18 +160,21 @@ html{
     transition-duration: 0.4s;
 }
 .button_delete:hover{
+    cursor: pointer;
     background-color: #ffffff;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 
 }
 .button_delete:active{
+    cursor: pointer;
     opacity: 0.8;
     background-color: #d06cebef;
 }
 .button_play{
-    position: absolute;
+    /* position: absolute;
     bottom: 5%;
-    left: 25%;
+    left: 25%; */
+
     opacity: 0.8;
 
     display: flex;
@@ -189,9 +194,9 @@ html{
     opacity: 0.9;
 }
 .button_pause{
-    position: absolute;
+    /* position: absolute;
     bottom: 5%;
-    right: 25%;
+    right: 25%; */
 
     display: flex;
     justify-content: center;
@@ -216,9 +221,9 @@ html{
     justify-content: center;
     align-items: center;
 
-    position: absolute;
+    /* position: absolute;
     bottom: 5%;
-    right: 3%;
+    right: 3%; */
 
     height: 13%;
     width: 9%;
@@ -239,13 +244,14 @@ html{
     background-color: #d06cebef;
 }
 .button_microphone_out{
-    position: absolute;
+    
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
+    /* position: absolute;
     bottom: 5%;
-    left: 45%;
+    left: 45%; */
     
     height: 15%;
     width: 10%;
