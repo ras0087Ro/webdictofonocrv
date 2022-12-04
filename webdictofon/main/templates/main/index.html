@@ -39,34 +39,35 @@
                 </p>
             </div>
 
+            <div class="buttons">
+                <!-- Кнопка удаления -->
+                <button class="button_delete" onclick="button_delete()" title="Пропустить задачу">
+                    <input id="button_delete" type="image" src="{% static 'img/delete.png' %}" alt="delete" width="70%" height="70%" onclick="button_delete()" id="button_delete">   
+                </button>
 
-            <!-- Кнопка удаления -->
-            <button class="button_delete" onclick="button_delete()" title="Пропустить задачу">
-                <input id="button_delete" type="image" src="{% static 'img/delete.png' %}" alt="delete" width="70%" height="70%" onclick="button_delete()" id="button_delete">   
-            </button>
+                <!-- Кнопка плэй -->
+                <button class="button_play" title="Произвести запись">
+                    <input id="button_play" onclick='test()' type="image" src="{% static 'img/play.png' %}" alt="play" width="40%" height="40%" opacity: 0.8;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
+                </button>
+                
 
-            <!-- Кнопка плэй -->
-            <button class="button_play" title="Произвести запись">
-                <input id="button_play" onclick='test()' type="image" src="{% static 'img/play.png' %}" alt="play" width="40%" height="40%" opacity: 0.8;
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
-            </button>
-            
+                <!-- Кнопка микрофона -->
+                <button class="button_microphone_out">
+                    <div class="button_microphone_in" title="Начать запись"><input type="image" src="{% static 'img/microphone.png' %}" alt="microphone" width="90%" height="90%"></div>
+                </button>
 
-            <!-- Кнопка микрофона -->
-            <button class="button_microphone_out">
-                <div class="button_microphone_in" title="Начать запись"><input type="image" src="{% static 'img/microphone.png' %}" alt="microphone" width="90%" height="90%"></div>
-            </button>
+                <!-- Кнопка паузы -->
+                <button class="button_pause" title="Остановить прослушивание">
+                    <input id="button_pause" type="image" src="{% static 'img/pause.png' %}" alt="pause" width="40%" height="40%" opacity: 0.8;
+                    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
+                </button>
 
-            <!-- Кнопка паузы -->
-            <button class="button_pause" title="Остановить прослушивание">
-                <input id="button_pause" type="image" src="{% static 'img/pause.png' %}" alt="pause" width="40%" height="40%" opacity: 0.8;
-                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));>
-            </button>
-
-            <!-- Кнопка отправки ГС -->
-            <button class="button_send" title="Отправить запись">
-                <input id="button_send" type="image" src="{% static 'img/send.png' %}" alt="send" width="80%" height="80%">
-            </button>
+                <!-- Кнопка отправки ГС -->
+                <button class="button_send" title="Отправить запись">
+                    <input id="button_send" type="image" src="{% static 'img/send.png' %}" alt="send" width="80%" height="80%">
+                </button>
+            </div>
         </div>
 
     <script src="{% static 'js/javas.js' %}"></script>
