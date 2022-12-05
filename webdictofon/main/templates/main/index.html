@@ -54,8 +54,21 @@
 
                 <!-- Кнопка микрофона -->
                 <button class="button_microphone_out">
-                    <div class="button_microphone_in" title="Начать запись" style="cursor: pointer;"><img style="cursor: pointer;" src="{% static 'img/microphone.png' %}" alt="microphone" width="90%" height="90%"></div>
+                    <div class="button_microphone_in" title="Начать запись" style="cursor: pointer;">
+                        <img id="button_microphone" style="cursor: pointer;" src="{% static 'img/microphone.png' %}" alt="microphone" width="90%" height="90%">
+                    </div>
                 </button>
+                <script>
+                    var i=0;
+                    var image = document.getElementById("button_microphone");
+                    // Добавьте свои картинки в массив через запятую
+                    var imgs = new Array('{% static img/stop_microphone.png%}','{% static img/microphone.png%}');
+                    function imgsrc() {
+                        i++;
+                        i %= imgs.length;
+                        image.data = imgs[i];
+                    }
+                </script>
 
                 <!-- Кнопка паузы -->
                 <button class="button_pause" title="Остановить прослушивание" style="cursor: pointer;">
