@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="{% static 'js/javas.js' %}"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -53,7 +54,7 @@
                 
 
                 <!-- Кнопка микрофона -->
-                <button class="button_microphone_out" onclick="change_microphone()">
+                <button class="button_microphone_out">
                     <div class="button_microphone_in" title="Начать запись" style="cursor: pointer;">
                         <img id = "button_microphone1" style="cursor: pointer;" src="{% static 'img/microphone.png' %}" alt="microphone" width="90%" height="90%">
                     </div>
@@ -70,8 +71,9 @@
                     <img id="button_send" src="{% static 'img/send.png' %}" alt="send" width="80%" height="80%" style="cursor: pointer;"> 
                 </button>
             </div>
+            <div class="sound-clips" style="display: block;"></div>
         </div>
 
-    <script src="{% static 'js/javas.js' %}"></script>
+    
     </body>
 </html>
