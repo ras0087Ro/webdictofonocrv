@@ -1,14 +1,15 @@
 // set up basic variables for app
 
 const record = document.getElementsByClassName('button_microphone_out');
-const stop = document.getElementsByClassName('button_delete');
+const record_stop = document.getElementsByClassName('button_delete');
 const soundClips = document.getElementsByClassName('sound-clips');
 // const canvas = document.querySelector('.visualizer');
-// const mainSection = document.querySelector('.main-controls');
+// const mainSection = document.getElementsByClassName('.main-controls');
+const download = document.getElementsByClassName('button_send');
 
 // disable stop button while not recording
 
-// stop.disabled = true;
+record_stop.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
 
@@ -27,33 +28,30 @@ if (navigator.mediaDevices.getUserMedia) {
     const mediaRecorder = new MediaRecorder(stream);
 
     // visualize(stream);
-    // alert(record);
-    record.onclick = function() {
-        mediaRecorder.start();
-        document.getElementById("button_microphone1").src="././static/img/microphone.png";
-        document.getElementById("button_microphone1").setAttribute('style', 'width: 90%; height: 90%;');
-        
-        console.log(mediaRecorder.state);
-        console.log("recorder started");
-        record.style.background = "red";
 
-        stop.disabled = false;
-        record.disabled = true;
+    record.onclick = record_on;
+    function record_on() {
+        alert('asdasd')
+      mediaRecorder.start();
+      console.log(mediaRecorder.state);
+      console.log("recorder started");
+      record.style.background = "red";
+
+      record_stop.disabled = false;
+      record.disabled = true;
     }
 
-    stop.onclick = function() {
-        document.getElementById("button_microphone1").src="././static/img/microphone.png";
-        document.getElementById("button_microphone1").setAttribute('style', 'width: 90%; height: 90%;');
-        
-        mediaRecorder.stop();
-        console.log(mediaRecorder.state);
-        console.log("recorder stopped");
-        record.style.background = "";
-        record.style.color = "";
-        mediaRecorder.requestData();
+    record_stop.onclick = function() {
+        alert('uraaa')
+      mediaRecorder.stop();
+      console.log(mediaRecorder.state);
+      console.log("recorder stopped");
+      record.style.background = "";
+      record.style.color = "";
+      // mediaRecorder.requestData();
 
-        stop.disabled = true;
-        record.disabled = false;
+      record_stop.disabled = true;
+      record.disabled = false;
     }
 
     mediaRecorder.onstop = function(e) {
@@ -84,6 +82,14 @@ if (navigator.mediaDevices.getUserMedia) {
 
       audio.controls = true;
       const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      document.body.appendChild(a);
+      a.style = "display: none";
+      a.href = url;
+      a.download = "test.wav";
+      a.click();
+      window.URL.revokeObjectURL(url);
       chunks = [];
       const audioURL = window.URL.createObjectURL(blob);
       audio.src = audioURL;
@@ -176,8 +182,22 @@ if (navigator.mediaDevices.getUserMedia) {
 
 //   }
 
+
 // window.onresize = function() {
 //   canvas.width = mainSection.offsetWidth;
 // }
-
 // window.onresize();
+download.onclick = function() {
+    const blob = new Blob(recordedChunks, {
+      type: "audio.wav"
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = url;
+    a.download = "test.wav";
+    a.click();
+    window.URL.revokeObjectURL(url);
+}
+

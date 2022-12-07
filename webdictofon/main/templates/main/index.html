@@ -3,7 +3,6 @@
     <head>
         {% load static %}
         <meta charset="utf-8">
-        <!-- <script src="javas.js"></script> -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +21,7 @@
         </div>
 
         <!-- Основной блок -->
-        <div class="frame">
+        <section class="frame">
 
             <!-- Блок шрифта -->
             <div class="font_size">
@@ -40,7 +39,7 @@
                 </p>
             </div>
 
-            <div class="buttons">
+            <section class="buttons">
                 <!-- Кнопка удаления -->
                 <button class="button_delete" style="cursor: pointer;" title="Пропустить задачу">
                     <img id="button_delete" src="{% static 'img/delete.png' %}" alt="delete" width="70%" height="70%">   
@@ -70,9 +69,9 @@
                 <button class="button_send" title="Отправить запись" style="cursor: pointer;">
                     <img id="button_send" src="{% static 'img/send.png' %}" alt="send" width="80%" height="80%" style="cursor: pointer;"> 
                 </button>
-            </div>
-            <div class="sound-clips" style="display: block;"></div>
-        </div>
+            </section>
+            <button class="sound-clips" style="display: block;"></button>
+        </section>
 
     
     </body>
