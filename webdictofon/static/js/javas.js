@@ -9,7 +9,7 @@ const download = document.getElementsByClassName('button_send');
 
 // disable stop button while not recording
 
-record_stop.disabled = true;
+// record_stop.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
 
@@ -17,21 +17,20 @@ let audioCtx;
 // const canvasCtx = canvas.getContext("2d");
 
 //main block for doing the audio recording
-
+navigator.mediaDevices.getUserMedia(constraints)
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
-
-  const constraints = { audio: true };
+  const constraints = { audio: false };
   let chunks = [];
 
+  
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
 
     // visualize(stream);
-
+    alert(record)
     record.onclick = record_on;
     function record_on() {
-        alert('asdasd')
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       console.log("recorder started");
@@ -42,7 +41,7 @@ if (navigator.mediaDevices.getUserMedia) {
     }
 
     record_stop.onclick = function() {
-        alert('uraaa')
+      alert('uraaa')
       mediaRecorder.stop();
       console.log(mediaRecorder.state);
       console.log("recorder stopped");
