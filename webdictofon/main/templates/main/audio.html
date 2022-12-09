@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% load static %}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
+    
+	<title>WebDictofon</title>
+</head>
+<body>
+    <div class="Rectangle_6">
+        <h2 class="instruction">Инструкция к прочтению</h2>
+        <p class="instruction_text">Короче крестик - это отменить, самолетик - это отправить.
+            Значок паузы - это стоп, значок продолжения - это прослушивание своей записи.
+            В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился.
+            Вы также можете менять размер шрифта для текста. </p>
+    </div>
+
+    <div class="frame">
+        <h1 class="frame_title">Текст для прочтения</h1>
+        <div class="frame_text">
+            <p style="margin: 2%;">
+                В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился. В начале июля, в чрезвычайно жаркое время, под вечер, один молодой человек вышел из своей каморки, которую нанимал от жильцов в С — м переулке, на улицу и медленно, как бы в нерешимости, отправился к К — ну мосту.Он благополучно избегнул встречи с своею хозяйкой на лестнице. Каморка его приходилась под самою кровлей высокого пятиэтажного дома и походила более на шкаф, чем на квартиру. Квартирная же хозяйка его, у которой он нанимал эту каморку с обедом и прислугой, помещалась одною лестницей ниже, в отдельной квартире, и каждый раз, при выходе на улицу, ему непременно надо было проходить мимо хозяйкиной кухни, почти всегда настежь отворенной на лестницу. И каждый раз молодой человек, проходя мимо, чувствовал какое-то болезненное и трусливое ощущение, которого стыдился и от которого морщился.
+            </p>
+        </div>
+        <div class="buttons">
+                <button class="start_button" onclick="startRecording(this);">
+                    <img style="cursor: pointer;" src="{% static 'img/microphone.png' %}" alt="microphone_record" width="90%">        
+                </button>
+            
+            
+                <button class="stop_button" onclick="stopRecording(this);" disabled>
+                    <img src="{% static 'img/stop_microphone.png' %}" style='cursor: pointer;' alt="stop" width="70%">
+                </button>
+            
+        </div>
+    </div>
+
+
+    <div class="bottom_frame">
+        <h2 class="recordings">Recordings</h2>
+        <div class="recordlist">
+            <ul id="recordingslist"></ul>
+        </div>
+        <h2>Log</h2>
+        <pre id="log"></pre>
+
+    </div>
+
+
+
+
+    <script>
+        function __log(e, data) {
+            log.innerHTML += "\n" + e + " " + (data || '');
+        }
+
+        var audio_context;
+        var recorder;
+        var i = 0;
+
+        function startUserMedia(stream) {
+            var input = audio_context.createMediaStreamSource(stream);
+            __log('Media stream created.');
+            // // ----- Uncomment if you want the audio to feedback directly -------
+            //input.connect(audio_context.destination);
+            //__log('Input connected to audio context destination.');
+
+            recorder = new Recorder(input);
+            __log('Recorder initialised.');
+        }
+        
+        function change_start(elem) {
+            if (i == 0){
+                elem.setAttribute('style', 'opacity: 0.5;');
+                document.querySelector('.stop_button').setAttribute('style', 'opacity: 1;')
+                i++;
+            }
+            else {
+                elem.setAttribute('style', 'opacity: 1;');
+                document.querySelector('.stop_button').setAttribute('style', 'opacity: 0.5;')
+                i--;
+            }
+        }
+
+        function startRecording(button) {
+            change_start(button);
+            recorder && recorder.record();
+            button.disabled = true;
+            button.nextElementSibling.disabled = false;
+            __log('Recording...');
+        }
+        function stopRecording(button) {
+            change_start(document.querySelector('.start_button'))
+            recorder && recorder.stop();
+            button.disabled = true;
+            button.previousElementSibling.disabled = false;
+            __log('Stopped recording.');
+
+            // create WAV download link using audio data blob
+            createDownloadLink();
+
+            recorder.clear();
+        }
+        function createDownloadLink() {
+            recorder && recorder.exportWAV(function(blob) {
+                var url = URL.createObjectURL(blob);
+                var li = document.createElement('li');
+                var au = document.createElement('audio');
+                var hf = document.createElement('a');
+                
+                au.controls = true;
+                au.src = url;
+                hf.href = url;
+                hf.download = new Date().toISOString() + '.wav';
+                hf.download.setAttribute('style', 'font-family: "Roboto", sans-serif; font-style: normal; font-size: 24px')
+                hf.innerHTML = hf.download;
+                li.appendChild(au);
+                li.appendChild(hf);
+                recordingslist.appendChild(li);
+            });
+            }
+            window.onload = function init() {
+            try {
+                // webkit shim
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+                window.URL = window.URL || window.webkitURL;
+                
+                audio_context = new AudioContext;
+                __log('Audio context set up.');
+                __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+            } catch (e) {
+                alert('No web audio support in this browser!');
+            }
+
+            navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+                __log('No live audio input: ' + e);
+            });
+        };
+    </script>
+
+    <script src="{% static 'js/recorder.js'%}"></script>
+</body>
+</html>

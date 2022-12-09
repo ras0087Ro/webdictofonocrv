@@ -9,7 +9,7 @@ const download = document.getElementsByClassName('button_send');
 
 // disable stop button while not recording
 
-// record_stop.disabled = true;
+record_stop.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
 
@@ -17,14 +17,16 @@ let audioCtx;
 // const canvasCtx = canvas.getContext("2d");
 
 //main block for doing the audio recording
-navigator.mediaDevices.getUserMedia(constraints)
+
+
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
-  const constraints = { audio: false };
+  const constraints = { audio: true };
   let chunks = [];
 
-  
+  alert('stope')
   let onSuccess = function(stream) {
+    alert('agagaga')
     const mediaRecorder = new MediaRecorder(stream);
 
     // visualize(stream);
@@ -52,7 +54,7 @@ if (navigator.mediaDevices.getUserMedia) {
       record_stop.disabled = true;
       record.disabled = false;
     }
-
+    alert('blalba')
     mediaRecorder.onstop = function(e) {
       console.log("data available after MediaRecorder.stop() called.");
 
@@ -118,9 +120,7 @@ if (navigator.mediaDevices.getUserMedia) {
   let onError = function(err) {
     console.log('The following error occured: ' + err);
   }
-
   navigator.mediaDevices.getUserMedia(constraints).then(onSuccess, onError);
-
 } else {
    console.log('getUserMedia not supported on your browser!');
 }
@@ -199,4 +199,3 @@ download.onclick = function() {
     a.click();
     window.URL.revokeObjectURL(url);
 }
-
