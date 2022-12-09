@@ -117,18 +117,16 @@
                 au.src = url;
                 hf.href = url;
                 hf.download = new Date().toISOString() + '.wav';
-<<<<<<< HEAD
-                hf.download.setAttribute('style', 'font-family: "Roboto", sans-serif; font-style: normal; font-size: 24px')
+
+                // hf.download.setAttribute('style', 'font-family: "Roboto", sans-serif; font-style: normal; font-size: 24px')
                 hf.innerHTML = hf.download;
                 li.appendChild(au);
                 li.appendChild(hf);
-=======
-                // hf.download.setAttribute('style', 'font-family: "Roboto", sans-serif; font-style: normal; font-size: 24px');
                 hf.innerHTML = hf.download;
                 li.appendChild(au);
                 li.appendChild(hf);
                 li.setAttribute('style', 'margin-bottom: 10%; font-family: "Roboto", sans-serif; font-style: normal; line-height: 42px; text-align: center;')
->>>>>>> 504a50f (aaaaa)
+
                 recordingslist.appendChild(li);
             });
             }
