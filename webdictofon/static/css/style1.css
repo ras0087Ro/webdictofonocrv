@@ -164,9 +164,13 @@ html{
 .bottom_frame{
     position: absolute;
     top: 95%;
+<<<<<<< HEAD
     left: 25%;
 
     width: 80%;
+=======
+    left: 45%;
+>>>>>>> 504a50f (aaaaa)
 
     display: flex;
     flex-direction: column;
@@ -192,4 +196,11 @@ html{
 
     /* background-color: rgba(255, 85, 255, 0.689);
     border-radius: 15%; */
+<<<<<<< HEAD
+=======
+}
+#recordingslist{
+    margin-bottom: 50px;
+    
+>>>>>>> 504a50f (aaaaa)
 }
