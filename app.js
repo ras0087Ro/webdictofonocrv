@@ -5,7 +5,15 @@ const soundClips = document.querySelector('.sound-clips');
 const canvas = document.querySelector('.visualizer');
 const mainSection = document.querySelector('.main-controls');
 const download = document.querySelector('.download');
+var h1 = document.getElementsByTagName('h1')[0];
 
+//for time func
+var sec = 0;
+var min = 0;
+var hrs = 0;
+var t;
+// perezapis audio
+var przps = 0;
 // disable stop button while not recording
 
 stop.disabled = true;
@@ -36,6 +44,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
       stop.disabled = false;
       record.disabled = true;
+      timer()
     }
 
     stop.onclick = function() {
@@ -48,6 +57,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
       stop.disabled = true;
       record.disabled = false;
+      reset()
     }
 
     mediaRecorder.onstop = function(e) {
@@ -89,6 +99,27 @@ if (navigator.mediaDevices.getUserMedia) {
         a.href = audioURL;
         a.download = "test.wav";
         a.click();
+        var xhr=new XMLHttpRequest();
+        xhr.onload=function(e) {
+          if(this.readyState === 4) {
+              console.log("Server returned: ",e.target.responseText);
+          }
+        };
+        recorder && recorder.exportWAV(function(blob) {
+          // Generate the 'File'
+          var data = new FormData();
+          data.append('file', blob);
+      
+          // Make the HTTP request
+          var oReq = new XMLHttpRequest();
+      
+          // POST the data to upload.php
+          oReq.open("POST", 'upload.php', true);
+          oReq.onload = function(oEvent) {
+            // Data has been uploaded
+          };
+          oReq.send(data);
+        });
       }
       deleteButton.onclick = function(e) {
         let evtTgt = e.target;
@@ -122,6 +153,40 @@ if (navigator.mediaDevices.getUserMedia) {
 } else {
    console.log('getUserMedia not supported on your browser!');
 }
+
+
+
+function tick(){
+  sec++;
+  if (sec >= 60) {
+      sec = 0;
+      min++;
+      if (min >= 60) {
+          min = 0;
+          hrs++;
+      }
+  }
+}
+function add() {
+  tick();
+  h1.textContent = (hrs > 9 ? hrs : "0" + hrs) 
+         + ":" + (min > 9 ? min : "0" + min)
+          + ":" + (sec > 9 ? sec : "0" + sec);
+  timer();
+}
+function timer() {
+  t = setTimeout(add, 1000);
+}
+
+function reset() {
+    h1.textContent = "00:00:00";
+    seconds = 0; minutes = 0; hours = 0;
+    clearTimeout(t)
+    sec = 0
+}
+
+
+
 
 
 
