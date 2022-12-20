@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Web dictaphone</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="Rectangle_6">
+      <h2 class="instruction">Инструкция к прочтению</h2>
+      <p class="instruction_text">{{ text_instruction }}</p>
+  </div>
+  
+  <!-- Текст для прочтения -->
+  <div class="frame">
+    <h2 class="frame_title">Текст для прочтения</h2>
+    <div class="frame_text">
+      <p style="margin: 2%;">{{ text }}</p>
+    </div> 
+
+    <div class="wrapper">
+      <section class="main-controls">
+        <canvas class="visualizer" height="60px"></canvas>
+        <div id="buttons">
+          <button class="record" title="Начать запись">
+            <img class="microphone_img" src="{% static 'img/microphone.png' %}" alt="microphone" style="height: 65px; width: 60px;">
+          </button>
+          <button class="stop" title="Остановить запись">
+            <img class="stop_img" src="{% static 'img/stop_microphone.png'%}" alt="stop"  style="height: 45px; width: 45px; margin: 15%; opacity: 50%;">
+          </button>
+          <button class="download" title="Скачать запись">
+            <img src="{% static 'img/send.png' %}" alt="send" style="height: 50px; width: 50px; margin: 10%;">
+          </button>
+        </div>
+      </section>
+    </div>
+      <section class="sound-clips">
+        <h2 class="recordings_h2">Recordings</h2>
+      </section>
+  </div>
+
+    <!-- <input type="checkbox" id="toggle"> -->
+    <script src="{% static 'js\app.js' %}"></script>
+
+  </body>
+</html>
